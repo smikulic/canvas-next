@@ -16,7 +16,7 @@ const CanvasBackground = ({ imageUrl, zoomFactor = 1.5 }) => {
     let ctx = canvas.getContext("2d");
 
     let cameraOffset = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
-    let cameraZoom = 1;
+    let cameraZoom = 0.75;
     // let cameraZoom = 1;
     let MAX_ZOOM = 2;
     let MIN_ZOOM = 0.5;
@@ -45,11 +45,21 @@ const CanvasBackground = ({ imageUrl, zoomFactor = 1.5 }) => {
         window.innerHeight * 2
       );
 
+      // 1st link
       ctx.fillStyle = "#fff";
-      drawRect(-50, -50, 100, 100);
-
+      drawRect(-920, -150, 200, 280);
       ctx.fillStyle = "#000";
-      drawText("Contact us", -50, -50, 24, "arial");
+      drawText("Contact us", -880, -10, 24, "arial");
+
+      const imageContactUs = new Image();
+      imageContactUs.src = "/contact-us.png";
+      ctx.drawImage(imageContactUs, -970, -305, 300, 490);
+
+      // 2nd link
+      ctx.fillStyle = "#fff";
+      drawRect(-120, -700, 360, 240);
+      ctx.fillStyle = "#000";
+      drawText("Careers", 10, -570, 24, "arial");
 
       requestAnimationFrame(draw);
     }
