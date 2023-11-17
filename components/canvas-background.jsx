@@ -7,7 +7,6 @@ const CanvasBackground = ({ imageUrl, zoomFactor = 1.5 }) => {
   // const [isDragging, setIsDragging] = useState(false);
   const [startPos, setStartPos] = useState({ x: 0, y: 0 });
   const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [scale, setScale] = useState(1);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -51,9 +50,9 @@ const CanvasBackground = ({ imageUrl, zoomFactor = 1.5 }) => {
       ctx.fillStyle = "#000";
       drawText("Contact us", -880, -10, 24, "arial");
 
-      const imageContactUs = new Image();
-      imageContactUs.src = "/contact-us.png";
-      ctx.drawImage(imageContactUs, -970, -305, 300, 490);
+      // const imageContactUs = new Image();
+      // imageContactUs.src = "/contact-us.png";
+      // ctx.drawImage(imageContactUs, -970, -305, 300, 490);
 
       // 2nd link
       ctx.fillStyle = "#fff";
@@ -162,45 +161,10 @@ const CanvasBackground = ({ imageUrl, zoomFactor = 1.5 }) => {
     // Ready, set, go
     draw();
 
-    // // Set canvas to full window size
-    // canvas.width = window.innerWidth;
-    // canvas.height = window.innerHeight;
-
-    // // Load and draw the background image
-    // const background = new Image();
-    // background.src = imageUrl;
-
-    // background.onload = function () {
-    //   drawImage();
-    // };
-
-    // // background.onload = function () {
-    // //   context.drawImage(background, 0, 0, canvas.width, canvas.height);
-    // // };
-
-    // const drawImage = () => {
-    //   context.clearRect(0, 0, canvas.width, canvas.height);
-    //   context.save();
-    //   context.translate(position.x, position.y);
-    //   context.scale(scale, scale);
-    //   context.drawImage(background, 0, 0, canvas.width, canvas.height);
-    //   context.restore();
-    // };
-
-    // const handleWheel = (e: any) => {
-    //   const zoom = e.deltaY * -0.01;
-    //   const newScale = scale * (1 + zoom * zoomFactor);
-
-    //   setScale(Math.max(1, newScale));
-    //   drawImage();
-    // };
-
-    // canvas.addEventListener("wheel", handleWheel);
-
     // return () => {
     //   canvas.removeEventListener("wheel", handleWheel);
     // };
-  }, [imageUrl, scale, position]);
+  }, [imageUrl, position]);
 
   // const handleMouseDown = (e: any) => {
   //   setStartPos({
@@ -223,15 +187,21 @@ const CanvasBackground = ({ imageUrl, zoomFactor = 1.5 }) => {
   // };
 
   return (
-    <canvas
-      ref={canvasRef}
-      style={{
-        position: "absolute",
-        top: 0,
-        left: 0,
-        zIndex: 1,
-      }}
-    />
+    <>
+      <canvas
+        ref={canvasRef}
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          zIndex: 1,
+        }}
+      />
+      {/* <div id="overlay">
+        <div className="content contactUs" style={{ top: 0 }}>Content 1</div>
+        <div className="content">Content 2</div>
+      </div> */}
+    </>
   );
   // return (
   //   <canvas

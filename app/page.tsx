@@ -1,13 +1,20 @@
 // import Image from 'next/image'
 
 import CanvasBackground from "@/components/canvas-background.jsx";
+import CssBackground from "@/components/css-background.jsx";
 
 export default function Home() {
+  // return (
+  //   <>
+  //     <CssBackground />
+  //   </>
+  // );
+
   return (
     <>
       <CanvasBackground imageUrl="/canvas-bg.png" />
       {/* <div id="overlay">
-        <div className="content">Content 1</div>
+        <div className="content contactUs">Content 1</div>
         <div className="content">Content 2</div>
       </div> */}
     </>
