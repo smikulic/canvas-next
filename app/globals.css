@@ -25,3 +25,24 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+ #myCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* Behind the div elements */
+}
+
+#overlay {
+  position: absolute;
+  top: 48px;
+  left: 48px;
+  z-index: 2; /* Above the canvas */
+  /* Add more styling as needed */
+}
+
+.content {
+  /* Style your content divs */
+}
